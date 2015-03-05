@@ -21,9 +21,7 @@ queueMethods.enqueue = function(value){
 
 queueMethods.dequeue =function(){
 	if (this.theSize>0){
-		console.log("first: " + this.first)
 		var result=this.storage[this.first];
-		console.log("result: " + result)
 		delete this.storage[this.first]
 		this.first++
 		return result

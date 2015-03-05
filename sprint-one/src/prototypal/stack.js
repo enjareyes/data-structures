@@ -1,28 +1,29 @@
+
+
+
+
 var Stack = function() {
-// 	var someInstance = Object.create(Stack.stackMethods)
-// 	someInstance.size=0
-// 	someInstance.storage={}
-// 	return someInstance
-// };
+	var someInstance = Object.create(stackMethods);
+	someInstance.the_size=0;
+	someInstance.storage={};
+	return someInstance;
+};
 
+var stackMethods = {};
+stackMethods.push = function(value){
+	this.storage[this.the_size] = value;
+	this.the_size ++
+}
 
-// Stack.stackMethods = {};
+stackMethods.pop = function(){
+	if (this.the_size > 0) {
+		this.the_size--
+		var result = this.storage[this.the_size]
+		delete this.storage[this.the_size]
+		return result
+	}
+}
 
-// Stack.stackMethods.push = function(value){
-// 	this.storage[this.size] = value;
-// 	this.size ++
-// }
-
-// Stack.stackMethods.pop = function(){
-// 	if (this.size > 0) {
-// 		this.size--
-// 		var result = this.storage[this.size]
-// 		//this.size--
-// 		delete this.storage[this.size]
-// 		return result
-// 	}
-// }
-
-// Stack.stackMethods.size = function(){
-// 	return this.size
+stackMethods.size = function(){
+	return this.the_size
 }
