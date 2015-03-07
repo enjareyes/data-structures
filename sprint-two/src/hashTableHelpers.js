@@ -17,7 +17,7 @@ var LimitedArray = function(limit){
   var limitedArray = {};
   limitedArray.get = function(index){
     checkLimit(index);
-    return storage[index];
+    return storage[index]; //returns the bucket array in the hash table
   };
   limitedArray.set = function(index, value){
     checkLimit(index);

@@ -1,5 +1,8 @@
 var BinarySearchTree = function(value){
+
 };
+
+
 
 
 /*
