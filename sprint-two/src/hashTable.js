@@ -32,12 +32,9 @@ HashTable.prototype.remove = function(k){
 	if (theBucket !== undefined) {
 		for (var index = 0; index < theBucket.length; index++){
 			var currentArray = theBucket[index]
-			console.log(currentArray)
 			if (currentArray[0] === k){
 				theBucket.splice(index,1)
-				console.log(theBucket[index])
 				this._storage.set(i, theBucket)
-
 			}
 		}
 	}
