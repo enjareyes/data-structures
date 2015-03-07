@@ -2,7 +2,6 @@
 var Tree = function(value){
   var newTree = Object.create(treeMethods);
   newTree.value = value;
-
   newTree.children = []; 
   return newTree;
 };
@@ -22,7 +21,7 @@ treeMethods.contains = function(target){
 
 	var recursiveFunc = function(currentNode){
 		if (currentNode.value === target){
-			found =true
+			found = true;
 		}else{
 			if (currentNode.children.length > 0){
 				for (var i=0; i<currentNode.children.length; i++){
@@ -39,3 +38,5 @@ treeMethods.contains = function(target){
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+// Insertion: O(n)
+// Search: O(n)

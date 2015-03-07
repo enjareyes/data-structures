@@ -15,18 +15,16 @@ BinarySearchTree.binaryMethods.insert = function(value){
 	var recursive=function(parent){
 
 		if (parent.value<value){
-			if (parent.right===undefined){
-				parent.right=newTree
+			if (parent.right){
+				recursive(parent.right)  //call recursion on new parent(right)
 			} else {
-				var newParent=parent.right //assign new parent as 'right' value
-				recursive(newParent)  //call recursion on new parent(right)
+				parent.right=newTree
 			}
 		}else{
-			if (parent.left===undefined){
-				parent.left=newTree
+			if (parent.left){
+				recursive(parent.left)  //call recursion on new parent(leftie)
 			} else {
-				var newParent=parent.left  //assign new parent as 'leftie' value
-				recursive(newParent)  //call recursion on new parent(leftie)
+				parent.left=newTree
 			}
 		}
 	}
@@ -44,21 +42,15 @@ BinarySearchTree.binaryMethods.contains=function(target){
 			return found;
 		}else{
 			if (parent.value<target){
-				if (parent.right!==undefined){
-					var newParent = parent.right;
-					recursive(newParent);
-				}else{
-					return found;
+				if (parent.right){
+					recursive(parent.right);
 				}
-
 			}else{
-				if (parent.left!==undefined){
-					var newParent=parent.left;
-					recursive(newParent);
-				}else{
-					return found;
+				if (parent.left){
+					recursive(parent.left);
 				}
-			}	
+			}
+			return found	
 		}
 	}
 	recursive(currentParent)
@@ -71,14 +63,12 @@ BinarySearchTree.binaryMethods.depthFirstLog=function(func){
 	var recursive = function(parent){
 		func(parent.value)
 
-		if (parent.left!==undefined){
-			var newParent=parent.left;
-			recursive(newParent);
+		if (parent.left){
+			recursive(parent.left);
 		} 
 
-		if (parent.right!==undefined){
-			var newParent=parent.right;
-			recursive(newParent);
+		if (parent.right){
+			recursive(parent.right);
 		} 
 	}
 
@@ -88,3 +78,7 @@ BinarySearchTree.binaryMethods.depthFirstLog=function(func){
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+// Insertion: O(log(n))
+// Deletion: O(log(n))
+// Search: O(log(n))

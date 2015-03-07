@@ -27,10 +27,9 @@ var LinkedList = function(){
     var currentNode = list.head;
     var found = false;
 
-    while (currentNode.next !== null){
+    while (currentNode.next){
       if (currentNode.value === target) {
         found = true;
-        return found;
       } 
       currentNode = currentNode.next
     } 
@@ -38,7 +37,6 @@ var LinkedList = function(){
     if (currentNode.next === null) {
       if (currentNode.value === target) {
         found = true;
-        return found;
       } 
     }
 
@@ -57,6 +55,9 @@ var Node = function(value){
   return node;
 };
 
-/*
- * Complexity: What is the time complexity of the above functions?
- */
+
+ // * Complexity: What is the time complexity of the above functions?
+
+// Insertion: O(1)
+// Deletion: O(1) 
+// Search: O(n)
